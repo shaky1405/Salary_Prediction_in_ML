@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Page</title>
+  <link rel="stylesheet" href="@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <style class="css">
+    body {
+        background-color: steelblue; 
+    }
+
+    #prediction-form {
+        margin: 50px auto;
+        width: 400px;
+        color: #fff; 
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    }
+
+    #prediction-form h2 {
+        text-align: center;
+        color: white;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-control {
+        margin-bottom: 20px;
+        border: none;
+        border-bottom: 1px solid #fff; 
+        padding: 10px;
+        background-color: transparent;
+        color: white; /* Change input text color to white */
+        outline: none; 
+    }
+
+    .form-control::placeholder {
+        color: white; /* Change placeholder text color to white */
+    }
+
+    .btn-primary {
+        background-color: lightblue;
+        color: #000;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn-primary:hover {
+        background-color: #8eb4df;
+    }    
+</style>
+
+</head>
+<body>
+
+  <div id="prediction-form">
+    <h2>Salary Prediction</h2>
+    <form class="p-3 text-center" action='/', method="post" enctype="multipart/form-data">
+        <input class="form-control" type="text" name="Designation" placeholder="Designation" >
+        <input class="form-control" type="text" name="Unit" placeholder="Unit" >
+        <input class="form-control" type="number" name="Leaves_used" placeholder="Leaves Used" >
+        <input class="form-control" type="number" name="Leaves_rem" placeholder="Leaves Remaining" >
+        <input class="form-control" type="number" name="Rating"placeholder="Rating" > 
+        <input class="form-control" type="number" name="past_exp" placeholder="Past Experience" > 
+        <input class="btn btn-primary mt-3"type="submit" value="Predict" >
+    </form>
+    {% if prediction %}
+    <h3>
+      <div id="prediction-result">Predicted Salary: {{ prediction }}</div>
+    </h3>
+    {% endif %}
+
+  </div>
+
+</body>
+</html>
